@@ -1,24 +1,26 @@
-# README
+# Setup Instructions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installing Dependencies
+Run the following commands to install dependencies:
 
-Things you may want to cover:
+```bash
+bundle install
+```
+# Database Setup
+Run the following commands to create, migrate, and seed the database
+```bash
+rails db:create
+rails db:migrate
+rails db:seed
+```
+# Environment Specifications
 
-* Ruby version
+Ensure your environment meets the following specifications:
 
-* System dependencies
+- Ruby version: 3.2.2
+- Rails gem version: ~> 7.0.8
+- Node.js version: 18.16.1
+- Yarn version: 1.22.19
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Pre-Event User Creation
+> **Note:** Before creating any event, make sure to create a user from the user management page.
