@@ -1,0 +1,2 @@
+class MainEvent < ApplicationRecord
+end

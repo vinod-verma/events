@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <div class='card mt-4'>
+        <div class="card-header text-center">
+          <h4 class='text-primary'>Create New User</h4>
+        </div>
+        <%= form_with model: @user, url: "/admin", method: :post do |form| %>
+          <div class="card-body">
+            <div class="form-group">
+              <label class="mb-2 mt-3">
+                Email
+                <span class="text-danger">*</span>
+              </label>
+              <%= form.email_field :email, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <label class="mb-2 mt-3">
+                Role
+                <span class="text-danger">*</span>
+              </label>
+              <%= form.select :role, options_for_select(User.roles.keys.map {|w| [w.humanize, w]}), {prompt: 'Select role'}, class: "form-select"  %>
+            </div>
+            <div class="form-group row">
+              <div class="col-lg-6">
+                <label class="mb-2 mt-3">
+                  Password
+                  <span class="text-danger">*</span>
+                </label>
+                <%= form.password_field :password, class: "form-control" %>
+              </div>
+              <div class="col-lg-6">
+                <label class="mb-2 mt-3">
+                  Confirm Password
+                  <span class="text-danger">*</span>
+                </label>
+                <%= form.password_field :password_confirmation, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-center">
+            <%= form.submit "Save New User", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,2 @@
+class EventB < MainEvent
+end

@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <div class='card mt-4'>
+        <div class="card-header text-center">
+          <h4 class='text-primary'>Update User</h4>
+        </div>
+        <%= form_with model: @user, url: admin_path, method: :patch do |form| %>
+          <div class="card-body">
+            <div class="form-group">
+              <label class="mb-2 mt-3">
+                Email
+                <span class="text-danger">*</span>
+              </label>
+              <%= form.email_field :email, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <label class="mb-2 mt-3">
+                Role
+                <span class="text-danger">*</span>
+              </label>
+              <%= form.select :role, options_for_select(User.roles.keys.map {|w| [w.humanize, w]}, selected: form.object.role), {prompt: 'Select role'}, class: "form-select" %>  
+            </div>
+          </div>
+          <div class="card-footer text-center">
+            <%= form.submit "Save Changes", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

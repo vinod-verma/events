@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <div class='card mt-4'>
+        <div class="card-header">
+          <div class="row">
+            <div class="col-lg-6">
+              <h4 class='text-primary'>Users Listing</h4>
+            </div>
+            <div class="col-lg-6 text-end">
+              <%= link_to "Create New User", new_admin_path  %>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.email %></td>
+                <td><%= user.role.titleize %></td>
+                <td>
+                  <span><%= link_to "Edit", edit_admin_path(user), class: 'btn btn-primary' %></span>
+                  <span><%= link_to "Delete", admin_path(user), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %></span></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
