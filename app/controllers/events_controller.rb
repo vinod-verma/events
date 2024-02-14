@@ -8,6 +8,8 @@ class EventsController < ApplicationController
       @event = EventA.new(event_params)
     when 'Event B'
       @event = EventB.new(event_params)
+    else
+      return render json: { event: "Event type is not valid"}, status: :unprocessable_entity
     end
     if @event.save
       if @event.type == 'EventB'
