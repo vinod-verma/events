@@ -18,6 +18,7 @@ Run the following commands to create, migrate, and seed the database
 rails db:create
 rails db:migrate
 rails db:seed
+rails assets:precompile
 ```
 # Pre-Event User Creation
 > **Note:** Before creating any event, make sure to create a user from the user management page.
